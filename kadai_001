@@ -1,0 +1,11 @@
+!pip install requests beautifulsoup4
+import requests
+from bs4 import BeautifulSoup
+
+
+url = 'https://news.yahoo.co.jp/articles/7e1afe7af61b147b63931a48baca92dc7afd6d7e'
+response = requests.get(url)
+soup = BeautifulSoup(response.text, 'html.parser')
+body_element = soup.select_one('#uamods > div > div:nth-child(2) > p')
+body_text = body_element.text
+print(body_text)
