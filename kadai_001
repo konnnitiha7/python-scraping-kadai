@@ -6,16 +6,6 @@ from bs4 import BeautifulSoup
 url = 'https://news.yahoo.co.jp/articles/7e1afe7af61b147b63931a48baca92dc7afd6d7e'
 response = requests.get(url)
 soup = BeautifulSoup(response.text, 'html.parser')
-body_element = soup.select_one('#uamods > div > div:nth-child(1) > p')
-body_element1 = soup.select_one('#uamods > div > div:nth-child(2) > p')
-body_element2 = soup.select_one('#uamods > div > div:nth-child(3) > p')
-body_element3 = soup.select_one('#uamods > div > div:nth-child(4) > p')
+body_element = soup.select_one('#uamods >div.article_body.highLightSearchTarget')
 body_text = body_element.text
-body_text1 = body_element.text
-body_text2 = body_element2.text
-body_text3 = body_element3.text
-
 print (body_text)
-print (body_text1)
-print (body_text2)
-print (body_text3)
